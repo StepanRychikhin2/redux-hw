@@ -19,9 +19,17 @@ const initialState = {
 const reduser = (state = initialState, action) => {
 	if (action.type === 'addBB') {
 		console.log(initialState)
+		
 		return {
-			contacts: initialState.contacts.push(action.addContacts),
+			contacts: [...state.contacts, action.addContacts],
 		}
+	} else if(action.type === "minBB") {
+		return {
+			...state,
+			contacts: state.contacts.filter(contact => contact.id !== action.id)
+		}
+	} else {
+		return state
 	}
 }
 console.log(initialState)

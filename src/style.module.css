@@ -1,0 +1,71 @@
+.list {
+	list-style: none;
+}
+
+.listItem {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: white;
+}
+
+body {
+	background-image: url('./giphy.gif');
+    font-family: "Play", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.input[type=text] {
+    animation: gradient 5s ease infinite;
+    transition: transform 0.3s ease;
+background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba(2,143,2,1) 100%);
+    display: block;
+    width: 500px;
+    height: 40px;
+    padding: 0 8px;
+    border-radius: 10px;
+    border: 3px solid black;
+  }
+  
+  .input[type=text]:focus {
+    transform: scale(1.05);
+    outline: none;
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(315deg, rgb(236, 160, 255), rgb(170, 178, 255), rgb(132, 255, 201));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: bg-hue 2s linear infinite;
+  }
+  .subAtn{
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    border: 0;
+    background-size: 4000% 4000%;
+    background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba(2,143,2,1) 100%);
+
+}
+  @keyframes bg-hue {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

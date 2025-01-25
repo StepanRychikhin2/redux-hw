@@ -1,36 +1,70 @@
 import { useState } from 'react'
-import { unstable_batchedUpdates } from 'react-dom'
 import { useSelector, useDispatch } from 'react-redux'
-
-
-
-
-
+import sty from "./style.module.css"
 const Counter = () => {
-const [number ,setNumber] = useState()
-const [name ,setName] = useState()
-const [isopen ,setIsopen] = useState(false)
-
-
-
 	const phoneData = useSelector((state) => {
-		return state
+		return state.contacts
 	})
 
 	const dispatch = useDispatch()
 
-	function awdawd() {
-		dispatch({ type: 'addBB', addContacts: { name: 'awdawd', number: 231423 } })
+	function awdawd(e, nameBB, numBB) {
+		e.preventDefault()
+
+		const maxId = phoneData.reduce((max, contact) => {
+			return contact.id > max ? contact.id : max
+		}, 0)
+		dispatch({
+			type: 'addBB',
+			addContacts: {
+				name: nameBB,
+				number: numBB,
+				id: maxId + 1,
+			},
+		})
 	}
-	// console.log(phoneData)
-
-
-
+	function delNum(e) {
+		dispatch({ type: 'minBB', id: e })
+	}
 	return (
 		<>
 			<h1>Number Phone</h1>
-			<button onClick={awdawd}>awd</button>
 			{console.log(phoneData)}
+
+			<form className={sty.form}
+				action="addPhone"
+				onSubmit={(e) =>
+					awdawd(
+						e,
+						document.getElementById('name').value,
+						document.getElementById('number').value
+					)
+				}
+			>
+				<input type="text" className={sty.input} placeholder="number" id="number" />
+				<input type="text" className={sty.input} placeholder="name" id="name" />
+				<button className={sty.subAtn}>submit</button>
+			</form>
+
+			<ul  className={sty.list}>
+				{phoneData.map((data) => {
+					return (
+						<li className={sty.listItem} key={data.id}>
+							<p>{data.name}</p>
+							<p>{data.number}</p>
+							<button
+								onClick={() => {
+									delNum(data.id)
+								}}
+							>
+								del
+							</button>
+						</li>
+					)
+				})}
+
+				{console.log(phoneData)}
+			</ul>
 		</>
 	)
 }
