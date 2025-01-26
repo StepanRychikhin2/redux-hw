@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/redux-hw/static/css/main.ad928b45.css",
+    "main.js": "/redux-hw/static/js/main.80d642ad.js",
+    "static/media/giphy.gif": "/redux-hw/static/media/giphy.a0d0a420633c1eb742b2.gif",
+    "static/media/deletebutton.svg": "/redux-hw/static/media/deletebutton.1b12c5964d2f1121de0467287dc45963.svg",
+    "index.html": "/redux-hw/index.html",
+    "main.ad928b45.css.map": "/redux-hw/static/css/main.ad928b45.css.map",
+    "main.80d642ad.js.map": "/redux-hw/static/js/main.80d642ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad928b45.css",
+    "static/js/main.80d642ad.js"
+  ]
+}
