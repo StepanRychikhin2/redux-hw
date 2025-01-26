@@ -1,8 +1,35 @@
-.list {
+  li{
+    padding: 0;
+    margin: 0;
+    
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  .list {
+    margin-top: 40px;
 	list-style: none;
+ justify-content: center;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  /* height: 400px; */
+  width: 100% - 50%;
 }
 
 .listItem {
+  border-radius: 10px;
+  padding: 0px 0px 0px 10px;
+  width: 250px;
+  outline: none;
+  border: 3px solid transparent;
+  background-image:  linear-gradient(315deg, rgb(222, 170, 238), rgb(109, 124, 255), rgb(154, 224, 194));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: bg-hue 2s linear infinite;
+  backdrop-filter: blur(20px);
+
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -12,8 +39,9 @@
 body {
 	background-image: url('./giphy.gif');
     font-family: "Play", serif;
-  font-weight: 700;
+  font-weight: 800;
   font-style: normal;
+  
 }
 
 .form {
@@ -22,10 +50,19 @@ body {
 	justify-content: center;
 	gap: 20px;
 }
-
+.deleteImg {
+  width: 30px;
+  background: none;
+}
+.deleteBtn{
+position: absolute;
+left: 200px;
+  background: none;
+  border: 0;
+}
 .input[type=text] {
-    animation: gradient 5s ease infinite;
-    transition: transform 0.3s ease;
+  animation: gradient 5s ease infinite;
+  transition: transform 0.3s ease;
 background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba(2,143,2,1) 100%);
     display: block;
     width: 500px;
@@ -33,6 +70,9 @@ background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba
     padding: 0 8px;
     border-radius: 10px;
     border: 3px solid black;
+    font-family: "Play", serif;
+    font-weight: 700;
+    font-style: normal;
   }
   
   .input[type=text]:focus {
@@ -45,6 +85,9 @@ background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba
     animation: bg-hue 2s linear infinite;
   }
   .subAtn{
+    font-family: "Play", serif;
+    font-weight: 700;
+    font-style: normal;
     height: 40px;
     width: 100px;
     border-radius: 10px;

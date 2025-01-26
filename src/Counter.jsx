@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import sty from "./style.module.css"
+import del from "./deletebutton.svg"
 const Counter = () => {
 	const phoneData = useSelector((state) => {
 		return state.contacts
@@ -53,11 +54,12 @@ const Counter = () => {
 							<p>{data.name}</p>
 							<p>{data.number}</p>
 							<button
+className={sty.deleteBtn}
 								onClick={() => {
 									delNum(data.id)
 								}}
 							>
-								del
+								<img  className={sty.deleteImg} src={del}  />
 							</button>
 						</li>
 					)
