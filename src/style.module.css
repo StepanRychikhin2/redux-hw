@@ -3,6 +3,74 @@
     margin: 0;
     
   }
+
+
+
+
+
+
+  .subAtn {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .subAtn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 128px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .subAtn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+  }
+  
+  .subAtn:hover::after {
+    filter: blur(30px);
+  }
+  
+  .subAtn:hover::before {
+    transform: rotate(-180deg);
+  }
+  
+  .subAtn:active::before {
+    scale: 0.7;
+  }
+
+
+
+
+
+
+
+
   ul {
     margin: 0;
     padding: 0;
@@ -15,13 +83,12 @@
   /* flex-direction: column; */
   flex-wrap: wrap;
   /* height: 400px; */
-  width: 100% - 50%;
 }
 
 .listItem {
   border-radius: 10px;
   padding: 0px 0px 0px 10px;
-  width: 250px;
+  width: 270px;
   outline: none;
   border: 3px solid transparent;
   background-image:  linear-gradient(315deg, rgb(222, 170, 238), rgb(109, 124, 255), rgb(154, 224, 194));
@@ -56,7 +123,7 @@ body {
 }
 .deleteBtn{
 position: absolute;
-left: 200px;
+left: 235px;
   background: none;
   border: 0;
 }
@@ -84,7 +151,7 @@ background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba
     background-clip: padding-box, border-box;
     animation: bg-hue 2s linear infinite;
   }
-  .subAtn{
+  /* .subAtn{
     font-family: "Play", serif;
     font-weight: 700;
     font-style: normal;
@@ -95,7 +162,7 @@ background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba
     background-size: 4000% 4000%;
     background: linear-gradient(90deg, rgba(0,168,91,1) 0%, rgba(7,82,1,1) 51%, rgba(2,143,2,1) 100%);
 
-}
+} */
   @keyframes bg-hue {
     100% {
       filter: hue-rotate(360deg);
