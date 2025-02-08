@@ -2,14 +2,13 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import sty from './style.module.css'
 import del from './deletebutton.svg'
-import { addNumber, delNum } from './redux/task/actions'
+import { addNumber, delNum } from './redux/task/tasksSlise'
 const Counter = () => {
 	const phoneData = useSelector((state) => {
 		return state.contacts.contacts
 	})
 
 	const dispatch = useDispatch()
-
 
 	return (
 		<>
@@ -20,12 +19,13 @@ const Counter = () => {
 				className={sty.form}
 				action="addPhone"
 				onSubmit={(e) =>
-					dispatch(addNumber(
-						e,
-						document.getElementById('name').value,
-						document.getElementById('number').value
-					))
-					
+					dispatch(
+						addNumber(
+							e,
+							document.getElementById('name').value,
+							document.getElementById('number').value
+						)
+					)
 				}
 			>
 				<input
@@ -54,7 +54,7 @@ const Counter = () => {
 							<button
 								className={sty.deleteBtn}
 								onClick={() => {
-								dispatch(delNum(data.id))	
+									dispatch(delNum(data.id))
 								}}
 							>
 								<img className={sty.deleteImg} src={del} />

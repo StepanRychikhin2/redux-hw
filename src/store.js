@@ -1,8 +1,8 @@
 import { createStore } from 'redux'
 import { composeWithDevTools } from '@redux-devtools/extension'
 import { configureStore } from '@reduxjs/toolkit'
-import { taskReduser } from './redux/task/reduser'
-
+// import { taskReduser } from './redux/task/reduser'
+import { taskReduser } from './redux/task/tasksSlise'
 const store = configureStore({
 	reducer: {
 		contacts: taskReduser,
