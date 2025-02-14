@@ -57,11 +57,3 @@ const tasksSlise = createSlice({
 })
 export const { addNumber, delNum } = tasksSlise.actions
 export const taskReduser = tasksSlise.reducer
-// delNum(state, action) {
-// 	return {
-// 		...state,
-// 		contacts: state.contacts.filter(
-// 			(contact) => contact.id !== action.payload.id
-// 		),
-// 	}
-// },
