@@ -14,24 +14,21 @@ import { composeWithDevTools } from '@redux-devtools/extension'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import { taskReduser } from './redux/task/tasksSlise'
+import { addContacts } from './redux/middlewere/logger'
 
-const rootReduser = combineReducers({ contacts: taskReduser })
+// const rootReduser = combineReducers({ contacts: taskReduser })
 
-const persistConfig = {
-	key: 'root',
-	storage,
-}
+// const persistConfig = {
+// 	key: 'root',
+// 	storage,
+// }
 
-const persistedReducer = persistReducer(persistConfig, rootReduser)
+// const persistedReducer = persistReducer(persistConfig, rootReduser)
 
 const store = configureStore({
-	reducer: persistedReducer,
-	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware({
-		  serializableCheck: {
-			ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-		  },
-		}),
+	reducer: {
+		contacts: taskReduser,
+	},
 })
-export const persistor = persistStore(store)
+// export const persistor = persistStore(store)
 export { store }

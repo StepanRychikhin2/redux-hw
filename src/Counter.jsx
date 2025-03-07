@@ -1,33 +1,29 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import sty from './style.module.css'
 import del from './deletebutton.svg'
-import { addNumber, delNum } from './redux/task/tasksSlise'
+// import { addNumber, delNum } from './redux/task/tasksSlise'
+import {
+	getContacts,
+	addContacts,
+	delContacts,
+} from './redux/middlewere/logger'
+
 const Counter = () => {
 	const phoneData = useSelector((state) => {
 		return state.contacts.contacts
 	})
 
 	const dispatch = useDispatch()
+	useEffect(() => {
+		dispatch(getContacts())
+	}, [dispatch])
 
 	return (
 		<>
 			<h1>Number Phone</h1>
 			{console.log(phoneData)}
-
-			<form
-				className={sty.form}
-				action="addPhone"
-				onSubmit={(e) =>
-					dispatch(
-						addNumber(
-							e,
-							document.getElementById('name').value,
-							document.getElementById('number').value
-						)
-					)
-				}
-			>
+			<div className={sty.form}>
 				<input
 					maxLength="15"
 					type="text"
@@ -42,8 +38,24 @@ const Counter = () => {
 					placeholder="name"
 					id="name"
 				/>
-				<button className={sty.subAtn}>submit</button>
-			</form>
+				<button
+					onClick={() =>
+						dispatch(
+							addContacts(
+								 {
+									nameAwd :document.getElementById('name').value,
+									numberAwd:document.getElementById('number').value
+								}
+								
+
+							)
+						)
+					}
+					className={sty.subAtn}
+				>
+					submit
+				</button>
+			</div>
 
 			<ul className={sty.list}>
 				{phoneData.map((data) => {
@@ -54,7 +66,7 @@ const Counter = () => {
 							<button
 								className={sty.deleteBtn}
 								onClick={() => {
-									dispatch(delNum(data.id))
+									dispatch(delContacts(data.id))
 								}}
 							>
 								<img className={sty.deleteImg} src={del} />
