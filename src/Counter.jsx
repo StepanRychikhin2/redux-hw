@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import sty from './style.module.css'
 import del from './deletebutton.svg'
+import { phoneDataList } from './redux/selectors/selectors'
 // import { addNumber, delNum } from './redux/task/tasksSlise'
 import {
 	getContacts,
@@ -10,9 +11,7 @@ import {
 } from './redux/middlewere/logger'
 
 const Counter = () => {
-	const phoneData = useSelector((state) => {
-		return state.contacts.contacts
-	})
+	const phoneData = useSelector(phoneDataList)
 
 	const dispatch = useDispatch()
 	useEffect(() => {
@@ -21,8 +20,17 @@ const Counter = () => {
 
 	return (
 		<>
-			<h1>Number Phone</h1>
-			{console.log(phoneData)}
+			<div>
+				<h1>Number Phone</h1>
+				{/* <button
+					onClick={() => console.log(document.getElementById('myRange').value)}
+				>
+					awd
+				</button> */}
+				{/* <input onChange={() => console.log(document.getElementById('myRange').value)} id="myRange" className={sty.slider}  max="360" min="0" type="range" /> */}
+			</div>
+
+			{/* {console.log()} */}
 			<div className={sty.form}>
 				<input
 					maxLength="15"
@@ -41,14 +49,10 @@ const Counter = () => {
 				<button
 					onClick={() =>
 						dispatch(
-							addContacts(
-								 {
-									nameAwd :document.getElementById('name').value,
-									numberAwd:document.getElementById('number').value
-								}
-								
-
-							)
+							addContacts({
+								nameAwd: document.getElementById('name').value,
+								numberAwd: document.getElementById('number').value,
+							})
 						)
 					}
 					className={sty.subAtn}
