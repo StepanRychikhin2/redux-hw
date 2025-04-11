@@ -15,7 +15,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import { taskReduser } from './redux/task/tasksSlise'
 import { addContacts } from './redux/middlewere/logger'
-
+import { authReducer } from './redux/login/loginSlice'
 // const rootReduser = combineReducers({ contacts: taskReduser })
 
 // const persistConfig = {
@@ -27,6 +27,7 @@ import { addContacts } from './redux/middlewere/logger'
 
 const store = configureStore({
 	reducer: {
+		auth: authReducer,
 		contacts: taskReduser,
 	},
 })

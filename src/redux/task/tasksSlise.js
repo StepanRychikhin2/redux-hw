@@ -13,7 +13,7 @@ function handleRejected(state, actions) {
 	state.error = actions.payload
 	state.isLoading = false
 }
-console.log(initialState.contacts);
+console.log(initialState.contacts)
 const tasksSlise = createSlice({
 	name: 'tasks',
 	initialState: initialState,
@@ -29,55 +29,17 @@ const tasksSlise = createSlice({
 			.addCase(addContacts.pending, handlePending)
 			.addCase(addContacts.fulfilled, (state, action) => {
 				console.log(action.payload)
-								state.contacts = [...state.contacts, action.payload]
+				state.contacts = [...state.contacts, action.payload]
 				state.isLoading = false
 			})
 			.addCase(delContacts.rejected, handleRejected)
 			.addCase(delContacts.pending, handlePending)
 			.addCase(delContacts.fulfilled, (state, actions) => {
-				
-					state.contacts = state.contacts.filter(
-						(contact) => contact.id !== actions.payload.id
-					)
+				state.contacts = state.contacts.filter(
+					(contact) => contact.id !== actions.payload.id
+				)
 			})
 	},
-	// reducers: {
-	// 	addNumber: {
-	// 		reducer(state, action) {
-	// 			return {
-	// 				...state,
-	// 				contacts: [...state.contacts, action.payload],
-	// 			}
-	// 		},
-	// 		prepare(e, nameBB, numBB) {
-	// 			e.preventDefault()
-	// 			return {
-	// 				payload: {
-	// 					name: nameBB,
-	// 					number: numBB,
-	// 					id: nanoid(),
-	// 				},
-	// 			}
-	// 		},
-	// 	},
-	// 	delNum: {
-	// 		reducer(state, action) {
-	// 			return {
-	// 				...state,
-	// 				contacts: state.contacts.filter(
-	// 					(contact) => contact.id !== action.payload.id
-	// 				),
-	// 			}
-	// 		},
-	// 		prepare(e) {
-	// 			return {
-	// 				payload: {
-	// 					id: e,
-	// 				},
-	// 			}
-	// 		},
-	// 	},
-	// },
 })
 export const { addNumber, delNum } = tasksSlise.actions
 export const taskReduser = tasksSlise.reducer
