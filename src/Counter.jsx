@@ -111,7 +111,7 @@ const Counter = () => {
 			</div>
 
 			<ul className={sty.list}>
-				{phoneData.map((data) => {
+				{auth.token ? (phoneData.map((data) => {
 					return (
 						<li className={sty.listItem} key={data.id}>
 							<p>{data.name}</p>
@@ -126,7 +126,7 @@ const Counter = () => {
 							</button>
 						</li>
 					)
-				})}
+				})) : (<></>)}
 
 				{console.log(phoneData)}
 			</ul>
