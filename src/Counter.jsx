@@ -41,7 +41,8 @@ const Counter = () => {
 	}
 	const OperationLog = (login, password) => {
 		const values = {}
-
+		setVisibleReg(false)
+		setVisible(false)
 		if (true) {
 			values.email = login.trim() + '@gmail.com'
 			values.name = login.trim()
@@ -51,7 +52,8 @@ const Counter = () => {
 	}
 	const OperationREalLog = (loginn, password) => {
 		const values = {}
-
+		setVisibleReg(false)
+		setVisible(false)
 		if (true) {
 			values.email = loginn.trim() + '@gmail.com'
 			values.password = password.trim()
